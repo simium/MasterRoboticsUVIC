@@ -1,0 +1,32 @@
+commit defdc4b7772dda35fdd6cba896a454608796af84
+Author: Juampe López <jplopez@circutor.com>
+Date:   Tue Oct 20 12:42:40 2015 +0200
+
+    Fixed M3. Added M4.
+
+commit c7c2f431732cb70d2995f64e90c37967a8006a04
+Merge: 252590b 1992afb
+Author: Juampe López <jplopez@circutor.com>
+Date:   Tue Oct 20 12:38:37 2015 +0200
+
+    Merge branch 'master' of /home/jplopez/Dropbox/Master/Git/Server/MyRobotRepo into Development
+    
+    Merge with master after hotfix v0.2.
+
+commit 252590b7266d76cab648237d1842240202718877
+Author: Juampe López <jplopez@circutor.com>
+Date:   Tue Oct 20 12:37:20 2015 +0200
+
+    Added M3.
+
+commit 1992afbd0b58117032442080412c8062e097e7f1
+Author: Juampe López <jplopez@circutor.com>
+Date:   Tue Oct 20 12:36:52 2015 +0200
+
+    Fixes bug.
+
+commit 20e019c442630f6c01e7c6b721aedbb9ef703d3b
+Author: Juampe López <jplopez@circutor.com>
+Date:   Tue Oct 20 12:33:50 2015 +0200
+
+    First commit.
