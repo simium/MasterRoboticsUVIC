@@ -26,15 +26,18 @@ jp@ubuntu:~/catkin_ws$ rospack find roscpp
 jp@ubuntu:~/catkin_ws$ roscd roscpp
 jp@ubuntu:/opt/ros/indigo/share/roscpp$ pwd
 /opt/ros/indigo/share/roscpp
+
 jp@ubuntu:/opt/ros/indigo/share/roscpp$ roscd roscpp/cmake
 jp@ubuntu:/opt/ros/indigo/share/roscpp/cmake$ pwd
 /opt/ros/indigo/share/roscpp/cmake
+
 jp@ubuntu:/opt/ros/indigo/share/roscpp/cmake$ roscd log
 No active roscore
+
 jp@ubuntu:~/.ros/log$ rosls roscpp_tutorials
 cmake  launch  package.xml  srv
 ```
-#Creating a catkin Package
+#Creating a ROS Package
 ```shell
 $ cd ~/catkin_ws/src
 $ catkin_create_pkg beginner_tutorials std_msgs rospy roscpp
@@ -134,4 +137,60 @@ _Let's clean the final package.xml_
   <run_depend>std_msgs</run_depend>
 
 </package>
+```
+
+#Building a ROS Package
+```shell
+jp@ubuntu:~/catkin_ws/src$ ls
+beginner_tutorials  CMakeLists.txt
+
+jp@ubuntu:~/catkin_ws/src$ cd ..
+jp@ubuntu:~/catkin_ws$ ls
+build  devel  src
+
+jp@ubuntu:~/catkin_ws$ catkin_make
+Base path: /home/jp/catkin_ws
+Source space: /home/jp/catkin_ws/src
+Build space: /home/jp/catkin_ws/build
+Devel space: /home/jp/catkin_ws/devel
+Install space: /home/jp/catkin_ws/install
+Invalid package manifest "/home/jp/catkin_ws/src/beginner_tutorials/package.xml": The manifest contains invalid XML:
+mismatched tag: line 10, column 52
+jp@ubuntu:~/catkin_ws$ catkin_make
+Base path: /home/jp/catkin_ws
+Source space: /home/jp/catkin_ws/src
+Build space: /home/jp/catkin_ws/build
+Devel space: /home/jp/catkin_ws/devel
+Install space: /home/jp/catkin_ws/install
+####
+#### Running command: "make cmake_check_build_system" in "/home/jp/catkin_ws/build"
+####
+-- Using CATKIN_DEVEL_PREFIX: /home/jp/catkin_ws/devel
+-- Using CMAKE_PREFIX_PATH: /home/jp/catkin_ws/devel;/opt/ros/indigo
+-- This workspace overlays: /home/jp/catkin_ws/devel;/opt/ros/indigo
+-- Using PYTHON_EXECUTABLE: /usr/bin/python
+-- Using Debian Python package layout
+-- Using empy: /usr/bin/empy
+-- Using CATKIN_ENABLE_TESTING: ON
+-- Call enable_testing()
+-- Using CATKIN_TEST_RESULTS_DIR: /home/jp/catkin_ws/build/test_results
+-- Found gtest sources under '/usr/src/gtest': gtests will be built
+-- Using Python nosetests: /usr/bin/nosetests-2.7
+-- catkin 0.6.14
+-- BUILD_SHARED_LIBS is on
+-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- ~~  traversing 1 packages in topological order:
+-- ~~  - beginner_tutorials
+-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- +++ processing catkin package: 'beginner_tutorials'
+-- ==> add_subdirectory(beginner_tutorials)
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/jp/catkin_ws/build
+####
+#### Running command: "make -j4 -l4" in "/home/jp/catkin_ws/build"
+####
+
+jp@ubuntu:~/catkin_ws$ ls
+build  devel  src
 ```
