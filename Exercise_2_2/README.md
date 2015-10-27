@@ -250,5 +250,30 @@ Pid: 19820
 [ INFO] [1445941610.752629135]: Starting turtlesim with node name /turtlesim
 [ INFO] [1445941610.765313710]: Spawning turtle [turtle1] at x=[5,544445], y=[5,544445], theta=[0,000000]
 ```
-Inline-style:
-![alt text](http://i.imgur.com/UUOC9V7.pngg "My turtle simulator.")
+![alt text](http://i.imgur.com/UUOC9V7.png "My turtle simulator.")
+
+```shell
+[SHELL 3] jp@ubuntu:~/catkin_ws$ rosnode list
+/rosout
+/turtlesim
+
+[SHELL 3] jp@ubuntu:~/catkin_ws$ rosrun turtlesim turtlesim_node __name:=my_robo_turtle
+[ INFO] [1445942039.856948041]: Starting turtlesim with node name /my_robo_turtle
+[ INFO] [1445942039.866167813]: Spawning turtle [turtle1] at x=[5,544445], y=[5,544445], theta=[0,000000]
+
+[SHELL 4] jp@ubuntu:~/catkin_ws$ rosnode list
+/my_robo_turtle
+/rosout
+/turtlesim
+
+[SHELL 4] jp@ubuntu:~/catkin_ws$ rosnode ping my_robo_turtle
+rosnode: node is [/my_robo_turtle]
+pinging /my_robo_turtle with a timeout of 3.0s
+xmlrpc reply from http://localhost:51156/	time=0.732899ms
+xmlrpc reply from http://localhost:51156/	time=1.176834ms
+xmlrpc reply from http://localhost:51156/	time=1.235008ms
+xmlrpc reply from http://localhost:51156/	time=1.034021ms
+^Cping average: 1.044691ms
+```
+
+![alt text](http://i.imgur.com/afYKFvH.png "Another turtle simulator.")
