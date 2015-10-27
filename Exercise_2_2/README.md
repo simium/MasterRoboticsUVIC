@@ -277,3 +277,18 @@ xmlrpc reply from http://localhost:51156/	time=1.034021ms
 ```
 
 ![alt text](http://i.imgur.com/afYKFvH.png "Another turtle simulator.")
+
+#Understanding ROS Topics
+```shell
+[SHELL 5] jp@ubuntu:~/catkin_ws$ rosrun turtlesim turtle_teleop_key
+Reading from keyboard
+---------------------------
+Use arrow keys to move the turtle.
+```
+
+![alt text](http://i.imgur.com/oIIczsx.png "Our turtle simulator after some movement.")
+
+```shell
+[SHELL 4] jp@ubuntu:~/catkin_ws$ rosrun rqt_graph rqt_graph
+
+![alt text](http://i.imgur.com/IcUwgbj.png "Our turtle simulator represented as a graph.")
