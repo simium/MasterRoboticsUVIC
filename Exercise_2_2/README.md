@@ -293,3 +293,93 @@ Use arrow keys to move the turtle.
 ```
 
 ![alt text](http://i.imgur.com/IcUwgbj.png "Our turtle simulator represented as a graph.")
+
+```shell
+jp@ubuntu:~/catkin_ws$ rostopic echo /turtle1/cmd_vel
+linear:
+  x: 2.0
+  y: 0.0
+  z: 0.0
+angular:
+  x: 0.0
+  y: 0.0
+  z: 0.0
+---
+linear:
+  x: 0.0
+  y: 0.0
+  z: 0.0
+angular:
+  x: 0.0
+  y: 0.0
+  z: 2.0
+---
+linear:
+  x: 2.0
+  y: 0.0
+  z: 0.0
+angular:
+  x: 0.0
+  y: 0.0
+  z: 0.0
+---
+linear:
+  x: 0.0
+  y: 0.0
+  z: 0.0
+angular:
+  x: 0.0
+  y: 0.0
+  z: 2.0
+---
+```
+
+![alt text](http://i.imgur.com/uZtEV8i.png "Our turtle simulator represented as a graph.")
+
+```shell
+[SHELL 6] jp@ubuntu:~/catkin_ws$ rostopic list -v
+
+Published topics:
+ * /turtle1/color_sensor [turtlesim/Color] 2 publishers
+ * /turtle1/cmd_vel [geometry_msgs/Twist] 1 publisher
+ * /rosout [rosgraph_msgs/Log] 4 publishers
+ * /rosout_agg [rosgraph_msgs/Log] 1 publisher
+ * /turtle1/pose [turtlesim/Pose] 2 publishers
+
+Subscribed topics:
+ * /turtle1/cmd_vel [geometry_msgs/Twist] 2 subscribers
+ * /rosout [rosgraph_msgs/Log] 1 subscriber
+ * /statistics [rosgraph_msgs/TopicStatistics] 1 subscriber
+
+[SHELL 6] jp@ubuntu:~/catkin_ws$ rostopic type /turtle1/cmd_vel
+geometry_msgs/Twist
+
+[SHELL 6] jp@ubuntu:~/catkin_ws$ rosmsg show geometry_msgs/Twist
+geometry_msgs/Vector3 linear
+  float64 x
+  float64 y
+  float64 z
+geometry_msgs/Vector3 angular
+  float64 x
+  float64 y
+  float64 z
+
+
+jp@ubuntu:~/catkin_ws$ rostopic pub -1 /turtle1/cmd_vel geometry_msgs/Twist -- '[2.0, 0.0, 0.0]' '[0.0, 0.0, 1.8]'
+publishing and latching message for 3.0 seconds
+```
+
+![alt text](http://i.imgur.com/mK8nrmK.png "Our turtle simulator after rostopic transformation.")
+
+
+```shell
+[SHELL 6] jp@ubuntu:~/catkin_ws$ rostopic pub /turtle1/cmd_vel geometry_msgs/Twist -r 1 -- '[2.0, 0.0, 0.0]' '[0.0, 0.0, -1.8]'
+
+[SHELL 7] jp@ubuntu:~/catkin_ws$ rosrun rqt_plot rqt_plot
+```
+
+![alt text](http://i.imgur.com/IEij09E.png "Our turtle simulator after rostopic transformation.")
+
+![alt text](http://i.imgur.com/RTQJ20A.png "Our turtle simulator after rostopic transformation.")
+
+![alt text](http://i.imgur.com/A2gW2Kq.png "Our turtle simulator represented in rqt_plot.")
