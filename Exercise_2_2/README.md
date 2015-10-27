@@ -449,6 +449,7 @@ jp@ubuntu:~/catkin_ws$ rosparam get my_params/background_b
 ```
 
 #Using rqt_console and roslaunch
+##rqt_console
 ```shell
 [SHELL 1] jp@ubuntu:~/catkin_ws$ roscore
 [SHELL 2] jp@ubuntu:~/catkin_ws$ rosrun rqt_console rqt_console
@@ -459,6 +460,8 @@ jp@ubuntu:~/catkin_ws$ rosparam get my_params/background_b
 ![alt text](http://i.imgur.com/g20mc5U.png "Run a new turtle.")
 
 ![alt text](http://i.imgur.com/vxZbODY.png "ROS console.")
+
+##roslaunch
 
 ```shell
 [SHELL 1] jp@ubuntu:~/catkin_ws$ source devel/setup.bash
@@ -506,3 +509,51 @@ process[mimic-3]: started with pid [22767]
 ![alt text](http://i.imgur.com/4NwpKL4.png "Run a new turtle.")
 
 ![alt text](http://i.imgur.com/07eJvM5.png "ROS graph.")
+
+#Using rosed
+Currently my editor is vim, which is the default for rosed.
+
+```shell
+jp@ubuntu:~/catkin_ws$ rosed roscpp[TAB TAB]
+roscpp                roscpp_serialization  roscpp_traits         roscpp_tutorials
+jp@ubuntu:~/catkin_ws$ rosed roscpp [TAB TAB]
+Empty.srv                   GetLoggers.srv              package.xml                 roscppConfig-version.cmake  SetLoggerLevel.srv
+genmsg_cpp.py               Logger.msg                  roscpp.cmake                roscpp-msg-extras.cmake
+gensrv_cpp.py               msg_gen.py                  roscppConfig.cmake          roscpp-msg-paths.cmake
+
+#Examining Publisher and Subscriber
+[SHELL 1] jp@ubuntu:~/catkin_ws$ roscore
+
+[SHELL 2] jp@ubuntu:~/catkin_ws$ rosrun beginner_tutorials talker
+[ INFO] [1445950333.389467084]: hello world 0
+[ INFO] [1445950333.489584854]: hello world 1
+[ INFO] [1445950333.589480121]: hello world 2
+[ INFO] [1445950333.689464989]: hello world 3
+[ INFO] [1445950333.789467550]: hello world 4
+[ INFO] [1445950333.889471761]: hello world 5
+[ INFO] [1445950333.989479583]: hello world 6
+[ INFO] [1445950334.089482532]: hello world 7
+[ INFO] [1445950334.189464332]: hello world 8
+[ INFO] [1445950334.289475509]: hello world 9
+[ INFO] [1445950334.389484892]: hello world 10
+[ INFO] [1445950334.489461049]: hello world 11
+[ INFO] [1445950334.589470126]: hello world 12
+[ INFO] [1445950334.689497845]: hello world 13
+[ INFO] [1445950334.789475380]: hello world 14
+^C[ INFO] [1445950334.889599193]: hello world 15
+
+[SHELL 3] jp@ubuntu:~/catkin_ws$ rosrun beginner_tutorials listener
+[ INFO] [1445950333.689916367]: I heard: [hello world 3]
+[ INFO] [1445950333.789868482]: I heard: [hello world 4]
+[ INFO] [1445950333.889953701]: I heard: [hello world 5]
+[ INFO] [1445950333.989922282]: I heard: [hello world 6]
+[ INFO] [1445950334.089914866]: I heard: [hello world 7]
+[ INFO] [1445950334.189858154]: I heard: [hello world 8]
+[ INFO] [1445950334.289882219]: I heard: [hello world 9]
+[ INFO] [1445950334.389887341]: I heard: [hello world 10]
+[ INFO] [1445950334.489874518]: I heard: [hello world 11]
+[ INFO] [1445950334.589825468]: I heard: [hello world 12]
+[ INFO] [1445950334.689898806]: I heard: [hello world 13]
+[ INFO] [1445950334.789826078]: I heard: [hello world 14]
+
+```
