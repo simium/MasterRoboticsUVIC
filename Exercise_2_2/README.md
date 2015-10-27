@@ -440,3 +440,10 @@ jp@ubuntu:~/catkin_ws$ rosservice call clear
 ```
 
 ![alt text](http://i.imgur.com/RMMdyXF.png "Background color -red channel- changed.")
+
+```shell
+jp@ubuntu:~/catkin_ws$ rosparam dump params.yaml
+jp@ubuntu:~/catkin_ws$ rosparam load params.yaml my_params
+jp@ubuntu:~/catkin_ws$ rosparam get my_params/background_b
+255
+```
