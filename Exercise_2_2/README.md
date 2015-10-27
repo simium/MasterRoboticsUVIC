@@ -64,7 +64,7 @@ jp@ubuntu:~/catkin_ws/src/beginner_tutorials$ cat package.xml
   <!-- One maintainer tag required, multiple allowed, one person per tag -->
   <!-- Example:  -->
   <!-- <maintainer email="jane.doe@example.com">Jane Doe</maintainer> -->
-  <maintainer email="jp@todo.todo">jplopez</maintainer>
+  <maintainer email="jp@todo.todo">jp</maintainer>
 
 
   <!-- One license tag required, multiple allowed, one license per tag -->
@@ -194,3 +194,61 @@ Install space: /home/jp/catkin_ws/install
 jp@ubuntu:~/catkin_ws$ ls
 build  devel  src
 ```
+
+#Understanding ROS Nodes
+We are going to need more than one terminal to run the commands below.
+
+```shell
+[SHELL 1] jp@ubuntu:~/catkin_ws$ roscore
+... logging to /home/jp/.ros/log/0e33b6a0-7c95-11e5-b394-b888e3e04b40/roslaunch-Circutor-19795.log
+Checking log directory for disk usage. This may take awhile.
+Press Ctrl-C to interrupt
+Done checking log file disk usage. Usage is <1GB.
+
+started roslaunch server http://localhost:34201/
+ros_comm version 1.11.13
+
+
+SUMMARY
+========
+
+PARAMETERS
+ * /rosdistro: indigo
+ * /rosversion: 1.11.13
+
+NODES
+
+auto-starting new master
+process[master]: started with pid [19807]
+ROS_MASTER_URI=http://localhost:11311/
+
+setting /run_id to 0e33b6a0-7c95-11e5-b394-b888e3e04b40
+process[rosout-1]: started with pid [19820]
+started core service [/rosout]
+
+
+[SHELL 2] jp@ubuntu:~/catkin_ws$ rosnode list
+/rosout
+[SHELL 2] jp@ubuntu:~/catkin_ws$ rosnode info /rosout
+--------------------------------------------------------------------------------
+Node [/rosout]
+Publications:
+ * /rosout_agg [rosgraph_msgs/Log]
+
+Subscriptions:
+ * /rosout [unknown type]
+
+Services:
+ * /rosout/set_logger_level
+ * /rosout/get_loggers
+
+
+contacting node http://localhost:37525/ ...
+Pid: 19820
+
+[SHELL 2] jp@ubuntu:~/catkin_ws$ rosrun turtlesim turtlesim_node
+[ INFO] [1445941610.752629135]: Starting turtlesim with node name /turtlesim
+[ INFO] [1445941610.765313710]: Spawning turtle [turtle1] at x=[5,544445], y=[5,544445], theta=[0,000000]
+```
+Inline-style:
+![alt text](http://i.imgur.com/UUOC9V7.pngg "My turtle simulator.")
