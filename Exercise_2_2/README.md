@@ -447,3 +447,62 @@ jp@ubuntu:~/catkin_ws$ rosparam load params.yaml my_params
 jp@ubuntu:~/catkin_ws$ rosparam get my_params/background_b
 255
 ```
+
+#Using rqt_console and roslaunch
+```shell
+[SHELL 1] jp@ubuntu:~/catkin_ws$ roscore
+[SHELL 2] jp@ubuntu:~/catkin_ws$ rosrun rqt_console rqt_console
+[SHELL 3] jp@ubuntu:~/catkin_ws$ rosrun rqt_logger_level rqt_logger_level
+[SHELL 4] jp@ubuntu:~/catkin_ws$ rosrun turtlesim turtlesim_node __name:=my_robo_turtle
+```
+
+![alt text](http://i.imgur.com/g20mc5U.png "Run a new turtle.")
+
+![alt text](http://i.imgur.com/vxZbODY.png "ROS console.")
+
+```shell
+[SHELL 1] jp@ubuntu:~/catkin_ws$ source devel/setup.bash
+[SHELL 1] jp@ubuntu:~/catkin_ws$ roscd beginner_tutorials
+[SHELL 1] jp@ubuntu:~/catkin_ws/src/beginner_tutorials$ mkdir launch
+[SHELL 1] jp@ubuntu:~/catkin_ws/src/beginner_tutorials$ cd launch
+[SHELL 1] jp@ubuntu:~/catkin_ws/src/beginner_tutorials/launch$ vim turtlemimic.launch
+[SHELL 1] jp@ubuntu:~/catkin_ws/src/beginner_tutorials/launch$ roslaunch beginner_tutorials turtlemimic.launch
+... logging to /home/jplopez/.ros/log/b0c37846-7ca0-11e5-8ca2-b888e3e04b40/roslaunch-Circutor-22745.log
+Checking log directory for disk usage. This may take awhile.
+Press Ctrl-C to interrupt
+Done checking log file disk usage. Usage is <1GB.
+
+started roslaunch server http://localhost:46697/
+
+SUMMARY
+========
+
+PARAMETERS
+ * /rosdistro: indigo
+ * /rosversion: 1.11.13
+
+NODES
+  /
+    mimic (turtlesim/mimic)
+  /turtlesim1/
+    sim (turtlesim/turtlesim_node)
+  /turtlesim2/
+    sim (turtlesim/turtlesim_node)
+
+ROS_MASTER_URI=http://localhost:11311
+
+core service [/rosout] found
+process[turtlesim1/sim-1]: started with pid [22763]
+process[turtlesim2/sim-2]: started with pid [22764]
+process[mimic-3]: started with pid [22767]
+
+
+[SHELL 2] jp@ubuntu:~/catkin_ws$ rostopic pub /turtlesim1/turtle1/cmd_vel geometry_msgs/Twist -r 1 -- '[2.0, 0.0, 0.0]' '[0.0, 0.0, -1.8]'
+
+[SHELL 3] jp@ubuntu:~/catkin_ws$ rqt_graph
+
+```
+
+![alt text](http://i.imgur.com/4NwpKL4.png "Run a new turtle.")
+
+![alt text](http://i.imgur.com/07eJvM5.png "ROS graph.")
