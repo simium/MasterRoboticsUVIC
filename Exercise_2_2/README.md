@@ -290,5 +290,6 @@ Use arrow keys to move the turtle.
 
 ```shell
 [SHELL 4] jp@ubuntu:~/catkin_ws$ rosrun rqt_graph rqt_graph
+```
 
 ![alt text](http://i.imgur.com/IcUwgbj.png "Our turtle simulator represented as a graph.")
