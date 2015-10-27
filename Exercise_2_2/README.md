@@ -383,3 +383,60 @@ publishing and latching message for 3.0 seconds
 ![alt text](http://i.imgur.com/RTQJ20A.png "Our turtle simulator after rostopic transformation.")
 
 ![alt text](http://i.imgur.com/A2gW2Kq.png "Our turtle simulator represented in rqt_plot.")
+
+#Understanding ROS Services and Parameters
+```shell
+jp@ubuntu:~/catkin_ws$ rosservice list
+/clear
+/kill
+/my_robo_turtle/get_loggers
+/my_robo_turtle/set_logger_level
+/reset
+/rosout/get_loggers
+/rosout/set_logger_level
+/spawn
+/teleop_turtle/get_loggers
+/teleop_turtle/set_logger_level
+/turtle1/set_pen
+/turtle1/teleport_absolute
+/turtle1/teleport_relative
+/turtlesim/get_loggers
+/turtlesim/set_logger_level
+
+jp@ubuntu:~/catkin_ws$ rosservice call /clear
+
+jp@ubuntu:~/catkin_ws$ rosservice type spawn | rossrv show
+float32 x
+float32 y
+float32 theta
+string name
+---
+string name
+
+jp@ubuntu:~/catkin_ws$ rosservice call spawn 2 2 0.2 ""
+name: turtle2
+
+```
+
+![alt text](http://i.imgur.com/olrTD6c.png "New turtle simulator.")
+![alt text](http://i.imgur.com/xZTQFkT.png "New turtle simulator after clear.")
+![alt text](http://i.imgur.com/Ru9atgm.png "New turtle simulator after clear and a new turtle spawn.")
+
+```shell
+jp@ubuntu:~/catkin_ws$ rosparam list
+/background_b
+/background_g
+/background_r
+/rosdistro
+/roslaunch/uris/host_localhost__34201
+/rosversion
+/run_id
+
+jp@ubuntu:~/catkin_ws$ rosparam set /background_r 150
+jp@ubuntu:~/catkin_ws$ rosparam get /background_r
+150
+
+jp@ubuntu:~/catkin_ws$ rosservice call clear
+```
+
+![alt text](http://i.imgur.com/RMMdyXF.png "Background color -red channel- changed.")
