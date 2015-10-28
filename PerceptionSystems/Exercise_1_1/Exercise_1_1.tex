@@ -1,0 +1,52 @@
+\documentclass[a4paper]{article}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{gensymb}
+
+\title{Master on Robotics: Perception Systems - Exercise 1.1}
+\date{28-10-2015}
+\author{Juan Pedro López Cabrera}
+
+\begin{document}
+  \pagenumbering{gobble}
+  \maketitle
+
+  \newpage
+  \pagenumbering{arabic}
+
+  \section{Exercise 1}
+If you have a mobile robot with wheels of radius R=0.4m, and it can run at maximum speed of 3m/s, compute how many pulses will
+receive a counter if you use an encoder of 500ppr.
+  \begin{itemize}
+    \item r = 0.4m
+    \item v = 3 m/s
+    \item 500 pulses per revolution
+  \end{itemize}
+
+
+Given the relationship between angular velocity and linear velocity:
+
+  \begin{equation}
+  {\omega} = \dfrac {v}{r} = \dfrac {3}{0.4} = {7.5}\ {rad/s}
+  \end{equation}
+
+
+And given the relationship between angular velocity and frequency of rotation:
+
+  \begin{equation}
+  {f} = \dfrac {\omega}{2\pi} = \dfrac {7.5}{2\pi} \approx {1.19}\ {revolutions\ per\ second}
+  \end{equation}
+
+
+We can compute the number of pulses per second received by our encoder:
+
+  \begin{equation}
+  {result} = \dfrac {pulses}{revolution} \times \dfrac {revolutions}{second} = 500 \times 1.19 \approx {595}\ {pulses\ per\ second}
+  \end{equation}
+
+\end{document}
